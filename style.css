@@ -1,0 +1,147 @@
+/* styles.css - custom styles (with Tailwind utilities via CDN) */
+
+
+/* Theme Variables */
+
+:root {
+    --bg-dark: #090012;
+    --panel: rgba(255, 255, 255, 0.03);
+    --muted: rgba(255, 255, 255, 0.7);
+    --glass: rgba(255, 255, 255, 0.03);
+    --accent-a: #7c46ff;
+    --accent-b: #4be0ff;
+    --card-border: rgba(255, 255, 255, 0.06);
+}
+
+
+/* Light Theme Overrides */
+
+[data-theme="light"] {
+    --bg-dark: #f7f7fb;
+    --panel: rgba(0, 0, 0, 0.04);
+    color: #0b0b0b;
+}
+
+
+/* Body Styling */
+
+body {
+    background: radial-gradient( 800px 300px at 85% 12%, rgba(75, 224, 255, 0.04), transparent), radial-gradient( 600px 250px at 10% 20%, rgba(124, 70, 255, 0.03), transparent), var(--bg-dark);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+
+/* Navigation Links */
+
+.nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 600;
+}
+
+
+/* Gradient Text and Logo */
+
+.gradient-text,
+.gradient-logo {
+    background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+
+/* Card Styling */
+
+.card {
+    background: linear-gradient( 180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.02));
+    padding: 18px;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+}
+
+
+/* Project Card Layout */
+
+.project-card {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 14px;
+    background: linear-gradient( 180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.02));
+    border: 1px solid var(--card-border);
+    align-items: center;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+.project-card .project-media {
+    min-height: 180px;
+    overflow: hidden;
+}
+
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform-origin: center;
+    transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+
+/* Tilt Effect */
+
+[data-tilt] {
+    perspective: 1200px;
+}
+
+
+/* Responsive Adjustments */
+
+@media (max-width: 1000px) {
+    .project-card {
+        grid-template-columns: 1fr;
+    }
+    .project-card .project-media {
+        height: 200px;
+    }
+}
+
+@media (max-width: 640px) {
+    .project-card .project-media {
+        height: 180px;
+    }
+}
+
+
+/* Input Styling */
+
+.input {
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    color: inherit;
+    outline: none;
+}
+
+
+/* Mobile Menu Transition */
+
+#mobileMenu {
+    transition: transform 350ms cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+
+/* Utility Classes */
+
+.text-muted {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+}
