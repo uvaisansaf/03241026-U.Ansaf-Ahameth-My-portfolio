@@ -1,0 +1,169 @@
+/* ============================= */
+/* Theme Variables */
+/* ============================= */
+:root {
+    --bg: #090012;
+    --text: #fff;
+    --card-bg: rgba(255,255,255,0.01);
+    --card-border: rgba(255,255,255,0.06);
+    --muted: rgba(255,255,255,0.75);
+    --accent-a: #7c46ff;
+    --accent-b: #4be0ff;
+}
+
+[data-theme="light"] {
+    --bg: #f7f7fb;
+    --text: #0b0b0b;
+    --card-bg: rgba(0,0,0,0.03);
+    --card-border: rgba(0,0,0,0.08);
+    --muted: rgba(0,0,0,0.75);
+}
+
+/* ============================= */
+/* Body Styling */
+/* ============================= */
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* ============================= */
+/* Navigation / Navbar */
+/* ============================= */
+header {
+    background: var(--card-bg);
+    border-bottom: 1px solid var(--card-border);
+    transition: background 0.5s ease, border 0.5s ease, color 0.5s ease, transform 0.5s ease, opacity 0.5s ease;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    opacity: 0;
+    transform: translateY(-20px);
+}
+
+header.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.nav-link {
+    color: var(--text);
+    font-weight: 600;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-link:hover {
+    transform: translateY(-2px);
+}
+
+/* ============================= */
+/* Gradient Text / Logo */
+/* ============================= */
+.gradient-text,
+.gradient-logo {
+    background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* ============================= */
+/* Card Styling */
+/* ============================= */
+.card {
+    background: var(--card-bg);
+    border-radius: 12px;
+    padding: 18px;
+    border: 1px solid var(--card-border);
+    transition: background 0.3s ease, border 0.3s ease;
+}
+
+/* ============================= */
+/* Project Cards */
+/* ============================= */
+.project-card {
+    display: grid;
+    grid-template-columns: 1fr 420px;
+    gap: 20px;
+    padding: 20px;
+    border-radius: 14px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    align-items: center;
+    transform-style: preserve-3d;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease, border 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+}
+
+.project-card .project-media {
+    min-height: 180px;
+    overflow: hidden;
+}
+
+.project-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transform-origin: center;
+    transition: transform 0.5s cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+/* ============================= */
+/* Tilt Effect */
+/* ============================= */
+[data-tilt] {
+    perspective: 1200px;
+}
+
+/* ============================= */
+/* Input Fields */
+/* ============================= */
+.input {
+    padding: 12px 14px;
+    border-radius: 10px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    color: var(--text);
+    outline: none;
+    transition: background 0.3s ease, border 0.3s ease, color 0.3s ease;
+}
+
+/* ============================= */
+/* Muted Text */
+/* ============================= */
+.text-muted {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* ============================= */
+/* Mobile Menu */
+/* ============================= */
+#mobileMenu {
+    transition: transform 350ms cubic-bezier(0.2, 0.9, 0.2, 1);
+}
+
+/* ============================= */
+/* Responsive Adjustments */
+/* ============================= */
+@media (max-width: 1000px) {
+    .project-card {
+        grid-template-columns: 1fr;
+    }
+    .project-card .project-media {
+        height: 200px;
+    }
+}
+
+@media (max-width: 640px) {
+    .project-card .project-media {
+        height: 180px;
+    }
+}
